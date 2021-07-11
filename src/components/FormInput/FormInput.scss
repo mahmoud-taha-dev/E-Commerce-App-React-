@@ -1,0 +1,16 @@
+@import "../../assets/style/abstracts/variables";
+label {
+  font-size: 18px;
+  color: #666;
+  font-weight: 500;
+}
+.input-field {
+  border: none;
+  outline: none;
+  border: 1px solid #e5e5e5;
+  line-height: 1.5;
+  padding: 9px 12px;
+  &:focus {
+    border-color: #bbb;
+  }
+}

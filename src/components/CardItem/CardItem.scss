@@ -1,0 +1,37 @@
+@import "../../assets/style/abstracts/variables";
+.cardItem {
+  &:hover .cardBtns {
+    display: flex !important;
+  }
+}
+.iconBtn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: $whiteColor;
+  font-size: 20px;
+  padding: 10px;
+  background-color: $mainColor;
+  border-radius: 50%;
+  &:hover {
+    background-color: $secondryColor;
+    color: $mainColor;
+  }
+  &:disabled {
+    cursor: not-allowed;
+    background-color: lighten($mainColor, 40%);
+    &:hover {
+      background-color: lighten($mainColor, 40%);
+      color: $whiteColor;
+    }
+  }
+}
+.modal-dialog {
+  padding-bottom: 20px;
+  .star-ratings {
+    padding: 0 0.5rem 0.5rem;
+  }
+  .exit-btn {
+    cursor: pointer;
+  }
+}
