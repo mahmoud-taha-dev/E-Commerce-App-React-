@@ -1,0 +1,38 @@
+@import "../../assets/style/abstracts/variables";
+.navbar {
+  background-color: $mainColor;
+  z-index: 100000;
+  .nav-link,
+  .navbar-brand {
+    color: $whiteColor;
+    cursor: pointer;
+  }
+  .nav-link:hover,
+  .navbar-brand:hover {
+    color: $secondryColor;
+  }
+  .activeRoute {
+    color: $secondryColor;
+  }
+  .cartNum {
+    background-color: $blackColor;
+    width: 25px;
+    height: 25px;
+  }
+  .nav-toggleBtn {
+    border: none;
+    outline: none !important;
+    .toggle-icon {
+      font-size: 28px;
+      padding: 2px;
+    }
+    &:focus {
+      box-shadow: none;
+    }
+    @media (min-width: 768px) {
+      & {
+        display: none;
+      }
+    }
+  }
+}
