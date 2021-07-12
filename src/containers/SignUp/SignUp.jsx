@@ -1,4 +1,4 @@
-import "./SignUp.scss";
+import style from "./SignUp.module.scss";
 import UserForm from "../../components/UserForm/UserForm";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import { toast } from "react-toastify";
@@ -37,7 +37,7 @@ const SignUp = () => {
 
   return (
     <PageTitle title="Sign Up">
-      <h2 className="text-center page-title">Sign Up</h2>
+      <h2 className={style.pageTitle}>Sign Up</h2>
       <UserForm
         onSubmit={onSubmit}
         initialValues={initialValues}

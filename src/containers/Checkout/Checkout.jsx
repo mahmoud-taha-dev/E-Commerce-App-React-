@@ -1,3 +1,4 @@
+import style from "./Checkout.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik, Form } from "formik";
 import * as yup from "yup";
@@ -73,7 +74,7 @@ const Checkout = () => {
 
   return (
     <PageTitle title="Checkout">
-      <h2 className="text-center page-title">Checkout</h2>
+      <h2 className={style.pageTitle}>Checkout</h2>
       <div className="row justify-content-between">
         <div className="col-12 col-md-5">
           <h4 className="mb-3 border-bottom pb-3">Delivery Details</h4>
@@ -90,7 +91,7 @@ const Checkout = () => {
               <div className="text-end">
                 <button
                   type="submit"
-                  className="btn main-btn px-5 mt-3"
+                  className={`btn ${style.mainBtn} px-5 mt-3`}
                   disabled={isSubmitting}
                 >
                   {!isSubmitting ? (

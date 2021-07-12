@@ -1,4 +1,6 @@
 @import "../../assets/style/abstracts/variables";
+@import "../../assets/style/utilities";
+
 .cardItem {
   &:hover .cardBtns {
     display: flex !important;
@@ -26,12 +28,13 @@
     }
   }
 }
-.modal-dialog {
+.modalDialog {
   padding-bottom: 20px;
-  .star-ratings {
+  top: 50px;
+  .starRating {
     padding: 0 0.5rem 0.5rem;
   }
-  .exit-btn {
+  .exitBtn {
     cursor: pointer;
   }
 }

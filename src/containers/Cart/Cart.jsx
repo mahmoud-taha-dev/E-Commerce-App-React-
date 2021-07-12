@@ -1,4 +1,4 @@
-import "./Cart.scss";
+import style from "./Cart.module.scss";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -18,12 +18,12 @@ const Cart = () => {
 
   return (
     <PageTitle title={`Shopping Cart ( ${cartNum} )`}>
-      <h2 className="text-center page-title">
+      <h2 className={style.pageTitle}>
         {cartNum ? `Shopping Cart (${cartNum})` : "Empty Cart"}
       </h2>
       {cartNum ? (
         <>
-          <table>
+          <table className={style.responsiveTable}>
             <thead>
               <tr>
                 <th>Product Name</th>
@@ -42,7 +42,7 @@ const Cart = () => {
                     <td data-column="Quantity : ">
                       <select
                         title="quantity"
-                        className="form-select form-select-sm"
+                        className={`form-select form-select-sm ${style.formSelect}`}
                         onChange={(e) => {
                           changeItemQuantity(index, e.target.value);
                         }}
@@ -68,11 +68,11 @@ const Cart = () => {
                           });
                           toggle();
                         }}
-                        className="text-danger btn btn-lg p-0 h4 del-icon"
+                        className={`text-danger btn btn-lg p-0 h4 ${style.delIcon}`}
                       />
                       <button
                         type="button"
-                        className="btn btn-danger d-none del-btn"
+                        className={`btn btn-danger d-none ${style.delBtn}`}
                         onClick={() => {
                           setmodalContent({
                             header: `Delete ( ${item.name} )`,
@@ -93,11 +93,11 @@ const Cart = () => {
             </tbody>
           </table>
           <div className="text-center">
-            <Link to="/checkout" className="btn main-btn">
+            <Link to="/checkout" className={`${style.mainBtn} btn`}>
               Checkout
             </Link>
             <button
-              className="btn sec-btn ms-2"
+              className={`btn ${style.secBtn} ms-2`}
               onClick={() => {
                 setmodalContent({
                   header: "Clear Cart",
@@ -115,7 +115,7 @@ const Cart = () => {
         </>
       ) : null}
       <Modal isOpen={modal} toggle={toggle} backdrop={false} keyboard={false}>
-        <ModalHeader className="ellipsis-txt border-0 m-0">
+        <ModalHeader className={`${style.ellipsisTxt} border-0 m-0`}>
           {modalContent.header}
         </ModalHeader>
         <ModalBody className="border-0 text-center h5 m-0 text-danger">
@@ -123,7 +123,7 @@ const Cart = () => {
         </ModalBody>
         <ModalFooter className="border-0 text-center mx-auto">
           <button
-            className="btn main-btn"
+            className={`btn ${style.mainBtn}`}
             onClick={() => {
               toggle();
               modalContent.action();
@@ -132,7 +132,7 @@ const Cart = () => {
             Yes
           </button>{" "}
           <button
-            className="btn sec-btn ms-2"
+            className={`btn ${style.secBtn} ms-2`}
             onClick={() => {
               toggle();
               setmodalContent(initialModalContent);

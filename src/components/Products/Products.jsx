@@ -1,4 +1,4 @@
-import "./Products.scss";
+import style from "./Products.module.scss";
 import { useEffect, useState } from "react";
 import CardItem from "../CardItem/CardItem";
 import useAxios from "../../utils/customHooks/useAxios";
@@ -33,7 +33,7 @@ const Products = () => {
       </p>
     );
   return (
-    <div className="products-grid">
+    <div className={style.productsGrid}>
       {products.map((product) => {
         return <CardItem key={product.id} productItem={product} />;
       })}

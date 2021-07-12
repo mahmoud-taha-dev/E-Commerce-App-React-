@@ -1,0 +1,25 @@
+@import "./abstracts/variables";
+.ellipsisTxt {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.pageTitle {
+  color: $mainColor;
+  text-align: center;
+  &::after {
+    content: "";
+    display: block;
+    border-bottom: 5px solid $mainColor;
+    width: 60px;
+    margin: 20px auto;
+  }
+}
+.userForm {
+  width: 50%;
+  @media (max-width: 768px) {
+    & {
+      width: 100%;
+    }
+  }
+}

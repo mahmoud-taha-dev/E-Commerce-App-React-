@@ -2,13 +2,13 @@
 .navbar {
   background-color: $mainColor;
   z-index: 100000;
-  .nav-link,
-  .navbar-brand {
+  .navLink,
+  .navbarBrand {
     color: $whiteColor;
     cursor: pointer;
   }
-  .nav-link:hover,
-  .navbar-brand:hover {
+  .navLink:hover,
+  .navbarBrand:hover {
     color: $secondryColor;
   }
   .activeRoute {
@@ -19,10 +19,10 @@
     width: 25px;
     height: 25px;
   }
-  .nav-toggleBtn {
+  .navToggleBtn {
     border: none;
     outline: none !important;
-    .toggle-icon {
+    .toggleIcon {
       font-size: 28px;
       padding: 2px;
     }

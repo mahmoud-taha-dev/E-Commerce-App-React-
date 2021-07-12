@@ -1,4 +1,4 @@
-import "./NavBar.scss";
+import style from "./NavBar.module.scss";
 import { useState } from "react";
 import { Collapse, Navbar, Nav, NavItem } from "reactstrap";
 import { FaShoppingCart } from "react-icons/fa";
@@ -37,13 +37,15 @@ const NavBar = () => {
   };
 
   return (
-    <Navbar className="navbar fixed-top w-100" expand="md">
+    <Navbar className={`${style.navbar} fixed-top w-100`} expand="md">
       <div className="container">
-        <Link to="/" className="h1 m-0 navbar-brand">
+        <Link to="/" className={`navbar-brand h1 m-0 ${style.navbarBrand}`}>
           E-Commerce
         </Link>
-        <button onClick={toggle} className="btn nav-toggleBtn ">
-          <BsList className="border border-white rounded text-white toggle-icon" />
+        <button onClick={toggle} className={`btn ${style.navToggleBtn}`}>
+          <BsList
+            className={`border border-white rounded text-white ${style.toggleIcon}`}
+          />
         </button>
         <Collapse isOpen={isOpen} navbar className="flex-grow-0">
           <Nav navbar>
@@ -51,8 +53,8 @@ const NavBar = () => {
               <NavLink
                 to="/"
                 exact
-                className="nav-link"
-                activeClassName="activeRoute"
+                className={`nav-link ${style.navLink}`}
+                activeClassName={style.activeRoute}
                 onClick={closeNavbarToggler}
               >
                 Home
@@ -62,8 +64,8 @@ const NavBar = () => {
               <NavLink
                 to="/cart"
                 exact
-                className="nav-link"
-                activeClassName="activeRoute"
+                className={`nav-link ${style.navLink}`}
+                activeClassName={style.activeRoute}
                 onClick={closeNavbarToggler}
               >
                 <FaShoppingCart className="pr-2" /> <span>{cartNum}</span>
@@ -74,8 +76,8 @@ const NavBar = () => {
                 <NavLink
                   to="/orders"
                   exact
-                  className="nav-link"
-                  activeClassName="activeRoute"
+                  className={`nav-link ${style.navLink}`}
+                  activeClassName={style.activeRoute}
                   onClick={closeNavbarToggler}
                 >
                   Orders
@@ -83,14 +85,14 @@ const NavBar = () => {
                 <NavLink
                   to="/profile"
                   exact
-                  className="nav-link"
-                  activeClassName="activeRoute"
+                  className={`nav-link ${style.navLink}`}
+                  activeClassName={style.activeRoute}
                   onClick={closeNavbarToggler}
                 >
                   Update Profile
                 </NavLink>
                 <NavItem
-                  className="ps-md-5 nav-link"
+                  className={`ps-md-5 nav-link ${style.navLink}`}
                   onClick={() => {
                     logout();
                     closeNavbarToggler();
@@ -113,8 +115,8 @@ const NavBar = () => {
                   <NavLink
                     to="/signup"
                     exact
-                    className="nav-link"
-                    activeClassName="activeRoute"
+                    className={`nav-link ${style.navLink}`}
+                    activeClassName={style.activeRoute}
                     onClick={closeNavbarToggler}
                   >
                     Sign Up
@@ -124,8 +126,8 @@ const NavBar = () => {
                   <NavLink
                     to="/signin"
                     exact
-                    className="nav-link"
-                    activeClassName="activeRoute"
+                    className={`nav-link ${style.navLink}`}
+                    activeClassName={style.activeRoute}
                     onClick={closeNavbarToggler}
                   >
                     Sign In

@@ -1,4 +1,4 @@
-import "./SignIn.scss";
+import style from "./SignIn.module.scss";
 import FormInput from "../../components/FormInput/FormInput";
 import { Formik, Form } from "formik";
 import * as yup from "yup";
@@ -41,20 +41,20 @@ const SignIn = () => {
 
   return (
     <PageTitle title="Sign In">
-      <h2 className="text-center page-title">Sign In</h2>
+      <h2 className={style.pageTitle}>Sign In</h2>
       <div className="d-flex justify-content-center mt-5">
         <Formik
           initialValues={initialValues}
           onSubmit={onSubmit}
           validationSchema={validationSchema}
         >
-          <Form className="row justify-content-center user-form">
+          <Form className={`row justify-content-center ${style.userForm}`}>
             <FormInput type="text" name="email" text="Email" />
             <FormInput type="password" name="password" text="Password" />
             <div className="text-end">
               <button
                 type="submit"
-                className="btn main-btn px-5 mt-3"
+                className={`btn ${style.mainBtn} px-5 mt-3`}
                 disabled={isSubmitting}
               >
                 {!isSubmitting ? (

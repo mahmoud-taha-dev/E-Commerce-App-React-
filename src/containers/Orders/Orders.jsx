@@ -1,3 +1,4 @@
+import style from "./Orders.module.scss";
 import { useEffect, useState } from "react";
 import getCreatedDate from "../../utils/functions/getCreatedDate";
 import { MdDoneAll } from "react-icons/md";
@@ -11,7 +12,7 @@ const Orders = () => {
   const [isLoading, setLoading] = useState(true);
   const [errors, setErrors] = useState(false);
   const { instance, cancelTokenSource } = useAxios();
-
+  const [payementLoadingId, setPayementLoadingId] = useState(null);
   const getOrders = () => {
     instance
       .get("/orders/myOrders", { cancelToken: cancelTokenSource.token })
@@ -35,7 +36,7 @@ const Orders = () => {
 
   return (
     <PageTitle title="Orders">
-      <h2 className="text-center page-title">Orders</h2>
+      <h2 className={style.pageTitle}>Orders</h2>
       {(isLoading || errors) && (
         <div className="d-flex justify-content-center mt-5">
           {isLoading && (
@@ -49,7 +50,7 @@ const Orders = () => {
         </div>
       )}
       {orders.length ? (
-        <table>
+        <table className={style.responsiveTable}>
           <thead>
             <tr>
               <th className="text-center">No.</th>
@@ -77,13 +78,19 @@ const Orders = () => {
                     {el.totalPrice.toFixed(2)} EGP
                   </td>
                   <td data-column="Payement : " className="text-center">
-                    {el.isPaid ? (
+                    {payementLoadingId === el.id ? (
+                      <div
+                        className="spinner-border spinner-border-sm text-primary"
+                        role="status"
+                      ></div>
+                    ) : el.isPaid ? (
                       <MdDoneAll className="text-success h3 mb-0" />
                     ) : (
                       <PayWithCard
                         orderId={el.id}
                         totalPrice={el.totalPrice.toFixed(2)}
                         getOrders={getOrders}
+                        setPayementLoadingId={setPayementLoadingId}
                       />
                     )}
                   </td>

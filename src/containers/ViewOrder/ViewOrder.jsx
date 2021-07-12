@@ -1,3 +1,4 @@
+import style from "./ViewOrder.module.scss";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import PayWithCard from "../../components/PayWithCard/PayWithCard";
@@ -30,7 +31,7 @@ const ViewOrder = () => {
 
   return (
     <PageTitle title="Order Details">
-      <h2 className="text-center page-title">Order Details</h2>
+      <h2 className={style.pageTitle}>Order Details</h2>
       {(isLoading || error) && (
         <div className="d-flex justify-content-center mt-5">
           {isLoading && (

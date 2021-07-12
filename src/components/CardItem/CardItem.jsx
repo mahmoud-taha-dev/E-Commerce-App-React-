@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import "./CardItem.scss";
+import { useState } from "react";
+import style from "./CardItem.module.scss";
 import StarRatings from "react-star-ratings";
 import {
   Card,
@@ -25,7 +25,7 @@ const CardItem = ({ productItem }) => {
 
   return (
     <>
-      <Card className="p-0 cardItem">
+      <Card className={`p-0 ${style.cardItem}`}>
         <div className="position-relative">
           <CardImg
             top
@@ -33,16 +33,18 @@ const CardItem = ({ productItem }) => {
             src={productItem.imageURL}
             alt={productItem.name}
           />
-          <div className="cardBtns d-none mb-3 justify-content-center position-absolute bottom-0 w-100">
+          <div
+            className={`${style.cardBtns} d-none mb-3 justify-content-center position-absolute bottom-0 w-100`}
+          >
             <button
-              className="iconBtn mx-1 d-flex justify-content-center align-items-center"
+              className={`${style.iconBtn} mx-1 d-flex justify-content-center align-items-center`}
               onClick={handleAddToCart(productItem)}
               disabled={!!!productItem.countInStock}
             >
               <FaCartPlus />
             </button>
             <button
-              className="iconBtn mx-1 d-flex justify-content-center align-items-center"
+              className={`${style.iconBtn} mx-1 d-flex justify-content-center align-items-center`}
               onClick={() => {
                 toggle();
                 setModalContent(productItem);
@@ -53,7 +55,7 @@ const CardItem = ({ productItem }) => {
           </div>
         </div>
         <CardBody className="d-flex flex-column justify-content-between px-3">
-          <CardTitle tag="h6" className="ellipsis-txt">
+          <CardTitle tag="h6" className={style.ellipsisTxt}>
             {productItem.name}
           </CardTitle>
           <CardSubtitle className="mb-2 text-muted">
@@ -64,10 +66,10 @@ const CardItem = ({ productItem }) => {
       </Card>
 
       {modalContent && modal && (
-        <Modal isOpen={modal} toggle={toggle}>
+        <Modal className={style.modalDialog} isOpen={modal} toggle={toggle}>
           <ModalBody>
             <TiDelete
-              className="h3 position-absolute m-2 end-0 me-4 text-danger exit-btn"
+              className={`h3 position-absolute m-2 end-0 me-4 text-danger ${style.exitBtn}`}
               onClick={toggle}
             />
             <div className="mr-2 mb-2">
@@ -79,19 +81,21 @@ const CardItem = ({ productItem }) => {
             </div>
             <div>
               <h5 className="pb-2 border-bottom">{modalContent.name}</h5>
-              <StarRatings
-                rating={modalContent.rating}
-                starDimension="18px"
-                starSpacing="2px"
-                starRatedColor="gold"
-              />
+              <div className={style.starRating}>
+                <StarRatings
+                  rating={modalContent.rating}
+                  starDimension="18px"
+                  starSpacing="2px"
+                  starRatedColor="gold"
+                />
+              </div>
               <p className="ps-2">{modalContent.brand}</p>
 
               <p className="mt-3 ps-2">{modalContent.description}</p>
               <p className="ps-2">{modalContent.price} EGP</p>
               {!!productItem.countInStock ? (
                 <button
-                  className=" ms-2 iconBtn d-flex justify-content-center align-items-center"
+                  className={`ms-2 ${style.iconBtn} d-flex justify-content-center align-items-center`}
                   onClick={() => {
                     toggle();
                     handleAddToCart(productItem)();

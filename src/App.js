@@ -24,6 +24,7 @@ import Checkout from "./containers/Checkout/Checkout";
 import Profile from "./containers/Profile/Profile";
 import ViewOrder from "./containers/ViewOrder/ViewOrder";
 import NotFound from "./containers/NotFound/NotFound";
+import Loader from "./components/Loader/Loader";
 
 //Lazy loading components
 const Orders = React.lazy(() => import("./containers/Orders/Orders"));
@@ -31,7 +32,7 @@ const Orders = React.lazy(() => import("./containers/Orders/Orders"));
 const App = () => {
   return (
     <Provider store={store}>
-      <Suspense fallback={<div className="spinner-border" role="status"></div>}>
+      <Suspense fallback={<Loader />}>
         <Router>
           <NavBar />
           <Switch>

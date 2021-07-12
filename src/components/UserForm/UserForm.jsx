@@ -1,3 +1,4 @@
+import style from "./UserForm.module.scss";
 import { Formik, Form } from "formik";
 import FormInput from "../FormInput/FormInput";
 import * as yup from "yup";
@@ -20,7 +21,7 @@ const UserForm = ({ onSubmit, initialValues, isSubmitting, btnTxt }) => {
         onSubmit={onSubmit}
         validationSchema={validationSchema}
       >
-        <Form className="row justify-content-center user-form">
+        <Form className={`row justify-content-center ${style.userForm}`}>
           <FormInput type="text" name="name" text="Name" />
           <FormInput type="text" name="email" text="Email" />
           <FormInput type="password" name="password" text="Password" />
@@ -32,7 +33,7 @@ const UserForm = ({ onSubmit, initialValues, isSubmitting, btnTxt }) => {
           <div className="text-end">
             <button
               type="submit"
-              className="btn main-btn px-5 mt-3"
+              className={`btn ${style.mainBtn} px-5 mt-3`}
               disabled={isSubmitting}
             >
               {!isSubmitting ? (

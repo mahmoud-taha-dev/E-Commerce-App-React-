@@ -1,3 +1,4 @@
+import style from "./Profile.module.scss";
 import { useSelector } from "react-redux";
 import UserForm from "../../components/UserForm/UserForm";
 import PageTitle from "../../components/PageTitle/PageTitle";
@@ -35,7 +36,7 @@ const Profile = () => {
 
   return (
     <PageTitle title="Update Profile">
-      <h2 className="text-center page-title">Update Profile</h2>
+      <h2 className={style.pageTitle}>Update Profile</h2>
       <UserForm
         onSubmit={onSubmit}
         initialValues={initialValues}

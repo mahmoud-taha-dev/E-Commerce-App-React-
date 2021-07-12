@@ -1,0 +1,12 @@
+@import "../abstracts/variables";
+.mainBtn {
+  background-color: $mainColor;
+  color: $whiteColor;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-weight: 500;
+  &:hover {
+    background-color: $secondryColor;
+    color: $mainColor;
+  }
+}
