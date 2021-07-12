@@ -114,7 +114,13 @@ const Cart = () => {
           </div>
         </>
       ) : null}
-      <Modal isOpen={modal} toggle={toggle} backdrop={false} keyboard={false}>
+      <Modal
+        className={style.modalDialog}
+        isOpen={modal}
+        toggle={toggle}
+        backdrop={false}
+        keyboard={false}
+      >
         <ModalHeader className={`${style.ellipsisTxt} border-0 m-0`}>
           {modalContent.header}
         </ModalHeader>
