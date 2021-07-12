@@ -92,7 +92,7 @@ const NavBar = () => {
                   Update Profile
                 </NavLink>
                 <NavItem
-                  className={`ps-md-5 nav-link ${style.navLink}`}
+                  className={`ms-md-5 nav-link ${style.navLink}`}
                   onClick={() => {
                     logout();
                     closeNavbarToggler();

@@ -1,4 +1,3 @@
-import "./PageTitle.scss";
 import { useEffect } from "react";
 
 const PageTitle = ({ title, children }) => {

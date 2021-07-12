@@ -72,12 +72,29 @@ const CardItem = ({ productItem }) => {
               className={`h3 position-absolute m-2 end-0 me-4 text-danger ${style.exitBtn}`}
               onClick={toggle}
             />
-            <div className="mr-2 mb-2">
+            <div className="position-relative mr-2 mb-2">
               <img
                 src={modalContent.imageURL}
                 alt={modalContent.name}
                 className="w-100"
               />
+              <div className="d-flex mb-2 justify-content-center position-absolute bottom-0 w-100">
+                {!!productItem.countInStock ? (
+                  <button
+                    className={`ms-2 ${style.iconBtn} d-flex justify-content-center align-items-center`}
+                    onClick={() => {
+                      toggle();
+                      handleAddToCart(productItem)();
+                    }}
+                  >
+                    <FaCartPlus />
+                  </button>
+                ) : (
+                  <button className="ms-2 btn btn-secondary btn-sm" disabled>
+                    Not Available In Stock
+                  </button>
+                )}
+              </div>
             </div>
             <div>
               <h5 className="pb-2 border-bottom">{modalContent.name}</h5>
@@ -90,24 +107,8 @@ const CardItem = ({ productItem }) => {
                 />
               </div>
               <p className="ps-2">{modalContent.brand}</p>
-
-              <p className="mt-3 ps-2">{modalContent.description}</p>
-              <p className="ps-2">{modalContent.price} EGP</p>
-              {!!productItem.countInStock ? (
-                <button
-                  className={`ms-2 ${style.iconBtn} d-flex justify-content-center align-items-center`}
-                  onClick={() => {
-                    toggle();
-                    handleAddToCart(productItem)();
-                  }}
-                >
-                  <FaCartPlus />
-                </button>
-              ) : (
-                <button className="ms-2 btn btn-secondary btn-sm" disabled>
-                  Not Available In Stock
-                </button>
-              )}
+              <p className="mt-2 ps-2">{modalContent.description}</p>
+              <p className="ps-2 mb-0">{modalContent.price} EGP</p>
             </div>
           </ModalBody>
         </Modal>

@@ -21,9 +21,9 @@
   }
   &:disabled {
     cursor: not-allowed;
-    background-color: lighten($mainColor, 40%);
+    background-color: rgb(155, 153, 153);
     &:hover {
-      background-color: lighten($mainColor, 40%);
+      background-color: rgb(155, 153, 153);
       color: $whiteColor;
     }
   }
@@ -35,5 +35,6 @@
   }
   .exitBtn {
     cursor: pointer;
+    z-index: 100;
   }
 }

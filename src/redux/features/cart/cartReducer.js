@@ -1,4 +1,4 @@
-import { ADD_TO_CART, CLEAR_CART, CHANGE_IN_CART } from "./cartTypes";
+import { ADD_TO_CART, CLEAR_CART, CHANGE_IN_CART } from "./actionConstants";
 
 const initialState = {
   cartItems: JSON.parse(localStorage.getItem("cart") || "[]"),
