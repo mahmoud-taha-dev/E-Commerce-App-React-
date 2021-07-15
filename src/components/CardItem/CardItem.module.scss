@@ -5,6 +5,11 @@
   &:hover .cardBtns {
     display: flex !important;
   }
+  @media (max-width: 768px) {
+    .cardBtns {
+      display: flex !important;
+    }
+  }
 }
 .iconBtn {
   border: none;

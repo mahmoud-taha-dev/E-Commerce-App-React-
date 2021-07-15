@@ -33,7 +33,27 @@ const Orders = () => {
       cancelTokenSource.cancel();
     };
   }, []);
-
+  const handlePayementStatus = (id, isPaid, totalPrice) => {
+    if (payementLoadingId === id) {
+      return (
+        <div
+          className="spinner-border spinner-border-sm text-primary"
+          role="status"
+        ></div>
+      );
+    } else if (isPaid) {
+      return <MdDoneAll className="text-success h3 mb-0" />;
+    } else {
+      return (
+        <PayWithCard
+          orderId={id}
+          totalPrice={totalPrice.toFixed(2)}
+          getOrders={getOrders}
+          setPayementLoadingId={setPayementLoadingId}
+        />
+      );
+    }
+  };
   return (
     <PageTitle title="Orders">
       <h2 className={style.pageTitle}>Orders</h2>
@@ -78,21 +98,7 @@ const Orders = () => {
                     {el.totalPrice.toFixed(2)} EGP
                   </td>
                   <td data-column="Payement : " className="text-center">
-                    {payementLoadingId === el.id ? (
-                      <div
-                        className="spinner-border spinner-border-sm text-primary"
-                        role="status"
-                      ></div>
-                    ) : el.isPaid ? (
-                      <MdDoneAll className="text-success h3 mb-0" />
-                    ) : (
-                      <PayWithCard
-                        orderId={el.id}
-                        totalPrice={el.totalPrice.toFixed(2)}
-                        getOrders={getOrders}
-                        setPayementLoadingId={setPayementLoadingId}
-                      />
-                    )}
+                    {handlePayementStatus(el.id, el.isPaid, el.totalPrice)}
                   </td>
                   <td className="text-center" data-column="Details : ">
                     <Link to={`/orders/${el.id}`}>View Details</Link>
